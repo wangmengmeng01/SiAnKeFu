@@ -1,0 +1,56 @@
+.dialog {
+  ::v-deep.el-dialog {
+    display: flex;
+    flex-direction: column;
+    max-height: 86vh;
+    margin-top: 0 !important;
+    border-radius: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    .el-dialog__header {
+      flex: none;
+      border-bottom: 0.5px solid #e1e1e1;
+      margin: 0 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      height: 48px;
+      position: relative;
+    }
+
+    .el-dialog__headerbtn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 0;
+    }
+
+    .el-dialog__title {
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    .el-dialog__body {
+      flex: 1;
+      overflow: auto;
+      padding: 0;
+      margin: 25px 25px 30px;
+    }
+
+    .el-dialog__footer {
+      padding: 0 0 34px 0;
+
+      button {
+        &:first-child {
+          margin-right: 20px;
+        }
+
+        &:last-child {
+          margin-left: 20px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,57 @@
+<template>
+  <div class="edit-club-permission">
+    <div v-if="!onEdit">
+      <span>{{ value? '有': '无' }}</span>
+      <el-button type="text" size="mini" icon="el-icon-edit" style="margin-left: 10px;" @click="init">修改</el-button>
+    </div>
+    <div v-else>
+      <el-switch v-model="switchClubQuickEntrance" active-text="有" inactive-text="无" active-color="#13ce66" inactive-color="#ff4949" style="margin-right: 10px;" />
+      <el-button type="text" size="mini" @click="cancel">取消</el-button>
+      <el-button type="text" size="mini" @click="submit">确定</el-button>
+    </div>
+  </div>
+</template>
+
+<script>
+import API from '@/api/user-manager'
+export default {
+  name: 'EditClubPermission',
+  props: {
+    value: Boolean
+  },
+  data() {
+    return {
+      onEdit: false,
+      switchClubQuickEntrance: '',
+      loading: false
+    }
+  },
+  methods: {
+    init() {
+      this.onEdit = true
+      this.switchClubQuickEntrance = this.value
+    },
+    cancel() {
+      this.switchClubQuickEntrance = ''
+      this.onEdit = false
+    },
+    submit() {
+      API[this.$route.path].editByUid({ uid: this.$route.query.uid, switchClubQuickEntrance: this.switchClubQuickEntrance }).then((res) => {
+        this.$message.success('操作成功')
+        this.$emit('success')
+        this.switchClubQuickEntrance = ''
+        this.onEdit = false
+      }).catch((err) => {
+        console.log(err)
+      })
+    }
+  }
+}
+</script>
+<style lang="scss" scoped>
+.edit-club-permission {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+</style>

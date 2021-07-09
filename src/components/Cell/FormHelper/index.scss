@@ -1,0 +1,121 @@
+.form-helper {
+  .group-name {
+    font-weight: 600;
+  }
+
+  ::v-deep.el-form-item__content {
+    margin-left: 0;
+
+    .el-upload-list {
+      max-height: 140px;
+      overflow-y: auto;
+    }
+
+    .el-icon-document:before {
+      color: #45b058;
+    }
+  }
+
+  .form-item-wrap {
+    flex-direction: column;
+
+    &.inline {
+      display: flex;
+
+      flex-direction: row;
+    }
+
+    .form-item {
+      display: flex;
+      line-height: 44px;
+      align-items: center;
+      line-height: inherit;
+
+      .form-content {
+        padding-top: 22px;
+        display: flex;
+        width: 100%;
+
+        .el-form-item {
+          width: 100%;
+        }
+
+        .input,
+        .date {
+          width: 100%;
+        }
+
+        .input {
+          &.input.prefix {
+            ::v-deep.el-input__inner {
+              padding-left: 34px;
+            }
+
+            ::v-deep.el-input__prefix {
+              display: flex;
+              align-items: center;
+              left: 10px;
+            }
+
+            img {
+              width: 16px;
+              height: 16px;
+            }
+          }
+        }
+
+        .select {
+          ::v-deep.el-tag.el-tag--info {
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            word-break: break-all;
+          }
+        }
+      }
+
+      &.top {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .label {
+        padding-right: 15px;
+
+        .required {
+          color: #f56c6c;
+        }
+      }
+
+      .prefix-text {
+        padding-right: 15px;
+      }
+
+      .suffix-text {
+        padding-left: 15px;
+      }
+    }
+
+    .button {
+      ::v-deep > span {
+        display: flex;
+        align-items: center;
+
+        img {
+          width: 18px;
+          height: 18px;
+
+          &.prefix {
+            margin-right: 10px;
+            box-sizing: content-box;
+          }
+
+          &.suffix {
+            margin-left: 10px;
+            box-sizing: content-box;
+          }
+        }
+      }
+    }
+  }
+}

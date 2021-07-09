@@ -1,0 +1,84 @@
+.upload-cloud-control {
+  display: inline-block;
+  line-height: normal;
+  ::v-deep {
+    .el-upload {
+      display: block;
+      height: 100%;
+      &--picture-card {
+        min-width: 50px;
+        width: auto;
+        height: 50px;
+        line-height: 50px;
+        border: 0 none;
+      }
+      &-dragger {
+        min-width: 50px;
+        min-height: 50px;
+        width: 100%;
+        height: 100%;
+        line-height: normal;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .el-icon-upload {
+          line-height: normal;
+          margin: 0;
+          font-size: 24px;
+        }
+      }
+      &-list__item {
+        line-height: 0;
+        outline: none;
+        overflow: hidden;
+        &:hover {
+          .el-upload-list__item-actions {
+            opacity: 1;
+          }
+        }
+        &-image {
+          min-height: 40px;
+          line-height: 1;
+          max-width: 100px;
+          max-height: 100px;
+        }
+      }
+    }
+  }
+  &-single {
+    ::v-deep {
+      .el-upload {
+        display: none;
+        &-list {
+          &__item {
+            &:first-child {
+              margin-top: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.el-upload-list__item-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  line-height: normal;
+  font-size: 18px;
+  background-color: rgba(0,0,0, .5);
+  color: #fff;
+  opacity: 0;
+  transition: 0.3s;
+  [class^=btn-file-] {
+    cursor: pointer;
+  }
+  [class^=btn-file-] ~ [class^=btn-file-] {
+    margin-left: 10px;
+  }
+}
